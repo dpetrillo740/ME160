@@ -24,17 +24,12 @@
 
 // Example creating a thermocouple instance with software SPI on any three
 // digital IO pins.
-#define DO   3
+#define DO   6
 #define CS   4
 #define CLK  5
-#define SOL  6
+#define SOL  13
 Adafruit_MAX31855 thermocouple(CLK, CS, DO);
 bool SOLstatus;
-
-// Example creating a thermocouple instance with hardware SPI (Uno/Mega only)
-// on a given CS pin.
-//#define CS   10
-//Adafruit_MAX31855 thermocouple(CS);
 
 //ADC Setup
 Adafruit_ADS1115 ads;  /* Use this for the 16-bit version */
@@ -44,8 +39,9 @@ void setup() {
   delay(500);
   
   pinMode(SOL, OUTPUT);
-  digitalWrite(SOL, HIGH);
-  SOLstatus = true; 
+  digitalWrite(SOL, HIGH); // Why is the opposite of this true??
+  pinMode(3, INPUT_PULLUP);
+  attachInterrupt(1, FlopSOL, FALLING);
    
   //Serial.println("Getting differential reading from AIN0 (P) and AIN1 (N)");
   //Serial.println("ADC Range: +/- 6.144V (1 bit = 3mV/ADS1015, 0.1875mV/ADS1115)");
@@ -96,11 +92,16 @@ void loop() {
    
    Serial.print(" ");
    
-   Serial.print(SOLstatus);
+   Serial.print(digitalRead(SOL));
    
    Serial.print(" ");
       
    Serial.println(millis());
    
-   
+}
+
+void FlopSOL()
+{
+   digitalWrite(SOL, !digitalRead(SOL));   // Toggle Solenoid 
+   delay(5); // debounce
 }
