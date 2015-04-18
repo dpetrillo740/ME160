@@ -17,6 +17,7 @@ import datetime
 
 import matplotlib.pyplot as plt 
 import matplotlib.animation as animation
+from matplotlib.widgets import Button
 
     
 # plot class
@@ -28,6 +29,7 @@ class AnalogPlot:
       dl = csv.writer(datalog)
       dl.writerow(['Data Logged From Pressure Experiment'])
       dl.writerow(['Temperature (C)', 'Pressure', 'Valve State', 'Time (mS)'])
+      
       # open serial port
       self.ser = serial.Serial(strPort, 115200)
 
@@ -67,11 +69,15 @@ class AnalogPlot:
       
       return a0, 
 
+  def serwrite(self, event):
+      self.ser.write("1")
+  
+  
   # clean up
   def close(self):
       # close serial
       self.ser.flush()
-      self.ser.close()    
+      self.ser.close()
 
 # main() function
 def main():
@@ -102,6 +108,11 @@ def main():
                                  fargs=(a0, a1), 
                                  interval=10)
 
+  # setup Button
+  axnext = plt.axes([0.65, 0.3, 0.21, 0.075])
+  bclick = Button(axnext, 'Open/Close Solenoid')
+  bclick.on_clicked(analogPlot.serwrite)
+  
   # show plot
   plt.show()
   

@@ -26,23 +26,25 @@
 // Example creating a thermocouple instance with software SPI on any three
 // digital IO pins.
 #define DO   6
-#define CS   4
-#define CLK  5
+#define CS   5
+#define CLK  4
 Adafruit_MAX31855 thermocouple(CLK, CS, DO);
 
-#define SOL  13 // The pin number for the Solinoid valve relay
+#define SOL  13 // The pin number for the Solenoid valve relay
 
 //ADC Setup
 Adafruit_ADS1115 ads; 
+
+int incomingByte = 0;   // for incoming serial data
 
 void setup() {
   Serial.begin(115200); //Begin the communication with the PC via Serial (USB connector) 
   delay(500);  //Wait for the serial to initialize 
   
-  pinMode(SOL, OUTPUT); // Set up the pin mode for the Solinoid relay output
-  digitalWrite(SOL, HIGH); // Why is the opposite of this true??
-  pinMode(3, INPUT_PULLUP); //Set the pullup resistor on the interrupt pin
-  attachInterrupt(1, FlopSOL, FALLING);
+  pinMode(SOL, OUTPUT); // Set up the pin mode for the Solenoid relay output
+  digitalWrite(SOL, LOW); // Why is the opposite of this true??
+ // pinMode(3, INPUT_PULLUP); //Set the pullup resistor on the interrupt pin
+ // attachInterrupt(1, FlopSOL, FALLING);
   
   // The ADC input range (or gain) can be changed via the following
   // functions, but be careful never to exceed VDD +0.3V max, or to
@@ -67,7 +69,7 @@ void loop() {
   // Read and hanldle errors from the thermocouple chip, print the results 
    double c = thermocouple.readCelsius();
    if (isnan(c)) {
-    // Serial.println("Something wrong with thermocouple!");
+     //Serial.println("Something wrong with thermocouple!");
     Serial.print(0); // Let's just print a '0' instead
    } else {
      Serial.print(c); // If everything is working, print out the temp in C
@@ -79,7 +81,6 @@ void loop() {
    float multiplier = 0.0078125F; /* This is the gain we selected for the ADS1115  @ +/- 0.256V gain (16-bit results) */
    results = ads.readADC_Differential_0_1();  // This reads the differential voltage between pin 0 and pin 1 of the ADC
     
-  //Serial.print("Differential: "); Serial.print(results); Serial.print("("); Serial.print(results * multiplier); Serial.println("mV)");
    float scale =  2.F; /* This variable converts millivolts to PSI (PSI/mV)*/
    
    Serial.print(results*multiplier*scale); // Print out the pressure in PSI
@@ -92,16 +93,26 @@ void loop() {
       
    Serial.println(millis()/1000.); // Print out the time in seconds since the micro has turned on
    
+          if (Serial.available() > 0) {
+                // read the incoming byte:
+                incomingByte = Serial.read();
+                FlopSOL2();
+        }
 }
 
 void FlopSOL() // This is the interrupt handler for the momentary switch, it acts as a flip flop to control the solinoid valve
 {
  static unsigned long last_interrupt_time = 0; // This section acts as a debounce for the switch
  unsigned long interrupt_time = millis();
- // If interrupts come faster than 500ms, assume it's a bounce and ignore
- if (interrupt_time - last_interrupt_time > 500) 
+ // If interrupts come faster than 100ms, assume it's a bounce and ignore
+ if (interrupt_time - last_interrupt_time > 100) 
  {
    digitalWrite(SOL, !digitalRead(SOL));   // Toggle the solenoid output pin
  }
  last_interrupt_time = interrupt_time; 
+}
+
+void FlopSOL2() // This function switches the state of the solenoid valve
+{
+   digitalWrite(SOL, !digitalRead(SOL));   // Toggle the solenoid output pin
 }
