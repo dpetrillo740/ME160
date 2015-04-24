@@ -1,15 +1,12 @@
 /*************************************************** 
   This is an example for the Adafruit Thermocouple Sensor w/MAX31855K
-
   Designed specifically to work with the Adafruit Thermocouple Sensor
   ----> https://www.adafruit.com/products/269
-
   These displays use SPI to communicate, 3 pins are required to  
   interface
   Adafruit invests time and resources providing this open source code, 
   please support Adafruit and open-source hardware by purchasing 
   products from Adafruit!
-
   Written by Limor Fried/Ladyada for Adafruit Industries.  
   BSD license, all text above must be included in any redistribution
   
@@ -38,12 +35,13 @@ Adafruit_ADS1115 ads;
 int incomingByte = 0;   // for incoming serial data
 
 void setup() {
-  Serial.begin(115200); //Begin the communication with the PC via Serial (USB connector)
-  //while (! Serial);  
+  Serial.begin(115200); //Begin the communication with the PC via Serial (USB connector) 
   delay(500);  //Wait for the serial to initialize 
   
   pinMode(SOL, OUTPUT); // Set up the pin mode for the Solenoid relay output
-  digitalWrite(SOL, LOW); // Start with the solenoid relay unpowered (closed)
+  digitalWrite(SOL, LOW); // Why is the opposite of this true??
+ // pinMode(3, INPUT_PULLUP); //Set the pullup resistor on the interrupt pin
+ // attachInterrupt(1, FlopSOL, FALLING);
   
   // The ADC input range (or gain) can be changed via the following
   // functions, but be careful never to exceed VDD +0.3V max, or to
@@ -92,11 +90,23 @@ void loop() {
       
    Serial.println(millis()/1000.); // Print out the time in seconds since the micro has turned on
    
-          if (Serial.available() > 0) { // If anything comes over the serial at all, flop the solenoid
+          if (Serial.available() > 0) {
                 // read the incoming byte:
                 incomingByte = Serial.read();
                 FlopSOL2();
         }
+}
+
+void FlopSOL() // This is the interrupt handler for the momentary switch, it acts as a flip flop to control the solinoid valve
+{
+ static unsigned long last_interrupt_time = 0; // This section acts as a debounce for the switch
+ unsigned long interrupt_time = millis();
+ // If interrupts come faster than 100ms, assume it's a bounce and ignore
+ if (interrupt_time - last_interrupt_time > 100) 
+ {
+   digitalWrite(SOL, !digitalRead(SOL));   // Toggle the solenoid output pin
+ }
+ last_interrupt_time = interrupt_time; 
 }
 
 void FlopSOL2() // This function switches the state of the solenoid valve

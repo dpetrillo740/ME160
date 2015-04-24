@@ -9,8 +9,6 @@ Modified by Dave Petrillo for Cooper Union
 """
 
 import sys, serial, argparse
-import numpy as np
-from time import sleep
 from collections import deque
 import csv
 import datetime
@@ -25,7 +23,7 @@ class AnalogPlot:
   # constr
   def __init__(self, strPort, maxLen):
       now = datetime.datetime.now()
-      datalog = open('Experiment Data '+ now.strftime("%Y-%m-%d %H:%M") +'.csv', 'wb')
+      datalog = open('Experiment Data '+ now.strftime("%Y-%m-%d %H-%M") +'.csv', 'wb')
       dl = csv.writer(datalog)
       dl.writerow(['Data Logged From Pressure Experiment'])
       dl.writerow(['Temperature (C)', 'Pressure', 'Valve State', 'Time (mS)'])

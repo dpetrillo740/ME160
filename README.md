@@ -1,6 +1,8 @@
 # ME160
 A ME160 Lab for Cooper Union
 
+Welcome to your module 2 lab. 
+
 Parts: 
 Adafruit Pro Trinket - 3V 12MHz: http://www.adafruit.com/product/2010
 ADS1115 16-Bit ADC - 4 Channel with Programmable Gain Amplifier: https://www.adafruit.com/products/1085
