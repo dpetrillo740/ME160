@@ -104,7 +104,7 @@ def main():
   a1, = ax.plot([], [])
   anim = animation.FuncAnimation(fig, analogPlot.update, 
                                  fargs=(a0, a1), 
-                                 interval=10)
+                                 interval=50)
 
   # setup Button
   axnext = plt.axes([0.65, 0.3, 0.21, 0.075])

@@ -30,7 +30,7 @@
 #define CLK  4
 Adafruit_MAX31855 thermocouple(CLK, CS, DO);
 
-#define SOL  13 // The pin number for the Solenoid valve relay
+#define SOL  8 // The pin number for the Solenoid valve relay
 
 //ADC Setup
 Adafruit_ADS1115 ads; 
