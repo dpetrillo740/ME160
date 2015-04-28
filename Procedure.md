@@ -22,7 +22,7 @@ Load the ME160.ino file onto the arduino. Be sure to select the correct board, p
 
 The libraries that are used in the arduino sketch are listed on the main github readme and must be downloaded and installed to the correct location (usually 'user\Documents\Arduino' Note that the IDE may have to be restarted to recognize newly added libraries. 
 
-Open a command prompt and navigate to the folder containing 'ReadData.py' in the main github directory. You can change directories using the 'cd ' command. Use the following commands to check that Python and the other required packages are properly installed. 
+Open a command prompt (Start Menu > Search > 'cmd.exe') and navigate to the folder containing 'ReadData.py' in the main github directory. You can change directories using the 'cd ' command. Use the following commands to check that Python and the other required packages are properly installed. 
 
 ```python 
 $ python
