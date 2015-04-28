@@ -31,6 +31,7 @@
 Adafruit_MAX31855 thermocouple(CLK, CS, DO);
 
 #define SOL  8 // The pin number for the Solenoid valve relay
+#define LED 13 // The pin number for the onboard LED
 
 //ADC Setup
 Adafruit_ADS1115 ads; 
@@ -43,7 +44,9 @@ void setup() {
   delay(500);  //Wait for the serial to initialize 
   
   pinMode(SOL, OUTPUT); // Set up the pin mode for the Solenoid relay output
+  pinMode(LED, OUTPUT); // Set up the pin mode for the LED output
   digitalWrite(SOL, LOW); // Start with the solenoid relay unpowered (closed)
+  digitalWrite(LED, LOW); // Start with the LED off
   
   // The ADC input range (or gain) can be changed via the following
   // functions, but be careful never to exceed VDD +0.3V max, or to
@@ -102,4 +105,5 @@ void loop() {
 void FlopSOL2() // This function switches the state of the solenoid valve
 {
    digitalWrite(SOL, !digitalRead(SOL));   // Toggle the solenoid output pin
+   digitalWrite(LED, digitalRead(SOL));   // Make the LED match the solenoid output
 }
