@@ -64,7 +64,7 @@ Use the following procedure to capture pressure venting data for 4 different noz
 - Start the python ReadData.py script to begin reading and recording data from the setup. Verify that temperature (blue) and pressure(green) match expected values (Degrees C and PSI)
 - The on board red LED will indicate the status of the relay to power the solenoid, off is closed and red is open.
 - Warn your fellow lab mates and begin venting by clicking the 'Open/Close solenoid valve' button 
-- Wait for the temperature to stabilize after the pressure has fully vented to exit the test by exiting out of the graph window. - Review your data using the .CSV file that has been created in the main github directory.  The file is named by the date and time of the test. 
+- Wait for the temperature to stabilize after the pressure has fully vented to exit the test by exiting out of the graph window. - Review your data using the .CSV file that has been created in the main github directory.  The file is named by the date and time of the test, and saved automatically. 
 - Save this file noting the nozzle size used
 - Repeat for all 4 nozzles
 
