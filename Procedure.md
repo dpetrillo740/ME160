@@ -44,6 +44,7 @@ $ python ReadData.py --port 'portname'
 Use the following proecedure to capture pressure venting data for 4 different nozzle sizes: 
 
 - Attach make the electrical connections to the pressure vessel for the power supply, solenoid, thermocouple, and pressure transducer according to the wiring diagram photo. 
+[![Diagram](https://github.com/dpetrillo740/ME160/blob/master/ME160%20Drawing.png?raw=true)]
 
 - Connect the chosen nozzle size
 
