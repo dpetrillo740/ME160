@@ -16,13 +16,13 @@ Each time you run this lab, start by downloading this repository from github usi
 
 Download the lab to a known directory such as: 'C:\Users\student\downloads' 
 
-Open the Arduino IDE located in: '
+Open the Arduino IDE located in: 'C:\Users\student\Downloads\arduino-1.6.3'
 
 Load the ME160.ino file onto the arduino. Be sure to select the correct board, port and programmer in the Arduino IDE settings. 
 
 The libraries that are used in the arduino sketch are listed on the main github readme and must be downloaded and installed to the correct location (usually 'user\Documents\Arduino' Note that the IDE may have to be restarted to recognise newly added libraries. 
 
-Open a command prompt and navigate to the folder containing 'ReadData.py' in the main github directory. Use the following commands to check that Python and the other required packages are properly installed.
+Open a command prompt and navigate to the folder containing 'ReadData.py' in the main github directory. You can change directories using the 'cd ' command. Use the following commands to check that Python and the other required packages are properly installed. 
 
 ```python 
 $ python
@@ -43,7 +43,7 @@ $ python ReadData.py --port 'portname'
 
 Use the following proecedure to capture pressure venting data for 4 different nozzle sizes: 
 
-- Attach make the electrical connections to the pressure vessel for the power supply, solenoid, thermocouple, and pressure transducer
+- Attach make the electrical connections to the pressure vessel for the power supply, solenoid, thermocouple, and pressure transducer according to the wiring diagram photo. 
 
 - Connect the chosen nozzle size
 
@@ -58,3 +58,5 @@ Use the following proecedure to capture pressure venting data for 4 different no
 - Wait for the temperature to stabilize after the pressure has fully vented to exit the test by exiting out of the graph window. 
 
 - Review your data using the .CSV file that has been created in the main github directory. 
+
+- Repeat for all 4 nozzles
