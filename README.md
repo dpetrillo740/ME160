@@ -1,6 +1,8 @@
 #Pressure vessel 
 A ME160 Lab for Cooper Union
 
+If you are conducting this lab in class, please refer to [Procedure](https://github.com/dpetrillo740/ME160/blob/master/Procedure.md) 
+
 Parts: 
 - Adafruit Pro Trinket - 3V 12MHz: http://www.adafruit.com/product/2010
 - ADS1115 16-Bit ADC - 4 Channel with Programmable Gain Amplifier: https://www.adafruit.com/products/1085
