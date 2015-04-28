@@ -18,7 +18,9 @@ Download the lab to a known directory such as: 'C:\Users\student\downloads'
 
 Open the Arduino IDE located in: 'C:\Users\student\Downloads\arduino-1.6.3'
 
-Load the ME160.ino file onto the arduino. Be sure to select the correct board, port and programmer in the Arduino IDE settings. 
+Load the ME160.ino file onto the Arduino IDE. Be sure to select the correct board, port and programmer in the Arduino IDE settings. 
+
+Verify the code and then download it to the physical Arduino board using the Check mark symbol and the Upload button in the Arduino IDE
 
 The libraries that are used in the arduino sketch are listed on the main github readme and must be downloaded and installed to the correct location (usually 'user\Documents\Arduino' Note that the IDE may have to be restarted to recognize newly added libraries. 
 
