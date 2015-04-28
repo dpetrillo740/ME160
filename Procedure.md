@@ -25,7 +25,7 @@ The libraries that are used in the arduino sketch are listed on the main github 
 Open a command prompt (Start Menu > Search > 'cmd.exe') and navigate to the folder containing 'ReadData.py' in the main github directory. You can change directories using the 'cd ' command. Use the following commands to check that Python and the other required packages are properly installed. 
 
 ```python 
-$ python
+> python
 ```
 Once inside the python interpreter, check that the packages import without error:
 
@@ -36,7 +36,7 @@ Once inside the python interpreter, check that the packages import without error
 In order to use the data acquisition script, the following use a command similar to: 
 
 ```python 
-$ python ReadData.py --port 'portname'
+> python ReadData.py --port 'portname'
 ```
 
 ## Hardware:
