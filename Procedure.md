@@ -35,10 +35,14 @@ Once inside the python interpreter, check that the packages import without error
 ```
 Exit the interpreter using quit()
 
+```python 
+>> quit()
+```
+
 In order to use the data acquisition script, the following use a command similar to: 
 
 ```python 
-> python ReadData.py --port 'portname'
+> python ReadData.py --port COM5
 ```
 
 ## Hardware:
