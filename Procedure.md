@@ -33,6 +33,8 @@ Once inside the python interpreter, check that the packages import without error
 >> import numpy
 >> import matplotlib
 ```
+Exit the interpreter using quit()
+
 In order to use the data acquisition script, the following use a command similar to: 
 
 ```python 
