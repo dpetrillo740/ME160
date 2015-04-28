@@ -2,7 +2,7 @@
 
 ## Introduction:
 
-In this lab you will use an Arduino based data acquisition system to measure dynamic pressure and temperature profiles of a pressure vessel. You will be required to download the code from github, load it to the arduino, hook up the sensors and operate the pressure vessel to record measurements for 4 different tests. 
+In this lab you will use an Arduino based data acquisition system to measure dynamic pressure and temperature profiles of a pressure vessel during venting. You will be required to download the code from github, load it to the arduino, hook up the sensors and operate the pressure vessel to record measurements for 4 different tests. 
 
 ## Software: 
 
