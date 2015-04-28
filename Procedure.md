@@ -29,7 +29,7 @@ Open a command prompt (Start Menu > Search > 'cmd.exe') and navigate to the fold
 ```python 
 > python
 ```
-Once inside the python interpreter, check that the packages import without error:
+Once inside the python interpreter, check that the packages import without error. No output indicates that they have successfully imported. Now we know that they are installed and available to use for the next step. 
 
 ```python 
 >> import numpy
