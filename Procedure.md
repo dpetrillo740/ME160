@@ -53,3 +53,5 @@ Use the following procedure to capture pressure venting data for 4 different noz
 - Wait for the temperature to stabilize after the pressure has fully vented to exit the test by exiting out of the graph window. - Review your data using the .CSV file that has been created in the main github directory.  
 - Save this file noting the nozzle size used
 - Repeat for all 4 nozzles
+
+If you have any issues while conducting this lab, please make a new issue using the (!) button at the right. You must be logged into github in order to do so.
