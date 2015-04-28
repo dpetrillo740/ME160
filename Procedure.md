@@ -55,7 +55,7 @@ Use the following procedure to capture pressure venting data for 4 different noz
 - Attach make the electrical connections to the pressure vessel for the power supply, solenoid, thermocouple, and pressure transducer according to the wiring diagram photo. 
 ![Diagram](https://github.com/dpetrillo740/ME160/blob/master/ME160%20Drawing.png?raw=true)
 - Connect the chosen nozzle size
--
+
 ### Warning!!
 - Fill the pressure vessel with air using the green hose attachment in the center of the SAE lab. Fill to the maximum pressure available in the lab, do not exceed 80PSI. Wait a few minutes for the temperature inside the vessel to stabilize. Use caution around the pressure vessel and the control board while it is pressurized! It may vent at any time, for any reason! 
 - Start the python ReadData.py script to begin reading and recording data from the setup. Verify that temperature (blue) and pressure(green) match expected values (Degrees C and PSI)
