@@ -46,6 +46,8 @@ In order to use the data acquisition script, the following use a command similar
 ```python 
 > python ReadData.py --port COM5
 ```
+This will attempt to communicate with the arduino via the serial port and display a graph of the inputs to the board. 
+Exit the program by exiting the graph and restart the program by retyping the command. 
 
 ## Hardware:
 
